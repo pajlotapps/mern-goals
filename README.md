@@ -1,6 +1,9 @@
-# The MERN stack - goals management app
+# The MERN stack - tasks management app
 
-Goals management app - The MERN Stack w/ express & MongoDB REST API
+Tasks management app - The MERN Stack w/ Express & MongoDB REST API
+
+## Stack
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ### Deployment 👋 
 via heroku -> [live] 
