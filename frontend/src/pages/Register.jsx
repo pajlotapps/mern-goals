@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
+import { register, reset } from "../features/auth/authSlice";
+import { Spinner } from "../components";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -11,28 +16,58 @@ function Register() {
 
   const { name, email, password, password2 } = formData;
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+
+    if (isError) {
+      toast.error(message)
+    }
+
+    if (isSuccess || user) {
+      navigate('/')
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch])
+
+  isLoading && <Spinner />;
+
   const onChange = (e) => {
-    setFormData((prevState)=>({
+    setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-
-    }))
+    }));
   };
 
-
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    if (password !== password2) {
+      toast.error("Passwords do not match");
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      };
+      dispatch(register(userData));
+    }
   };
 
   return (
     <>
-    
       <section className="heading">
         <h1>
           <FaUser />
-          Register
+          Rejestracja
         </h1>
-        <p>Fill the form</p>
+        <p>Uzupełnij formularz</p>
       </section>
 
       <section className="form">
@@ -49,7 +84,7 @@ function Register() {
             />
           </div>
           <div className="form-group">
-          <input
+            <input
               type="email"
               className="form-control"
               id="email"
@@ -82,7 +117,9 @@ function Register() {
             />
           </div>
           <div className="form-group">
-            <button type="submit" className="btn btn-block">Create account</button>
+            <button type="submit" className="btn btn-block">
+              Create account
+            </button>
           </div>
         </form>
       </section>
