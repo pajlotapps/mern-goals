@@ -4,19 +4,14 @@ import { deleteGoal } from "../features/goals/goalSlice";
 function GoalItem({ goal }) {
   const dispatch = useDispatch();
 
-  const deleteGoal = (e) => {
-    e.preventDefault();
-
-    dispatch(deleteGoal());
-  };
-
   return (
     <div className="goal">
-      <div>
-        {new Date(goal.createdAt).toLocaleDateString('pl-PL')}
-      </div>
+      <div className="timestamp"><strong>Utworzono:</strong> {new Date(goal.createdAt).toLocaleDateString("pl-PL")} | {new Date(goal.createdAt).toLocaleTimeString()}</div>
+      <div></div>
       <h2>{goal.text}</h2>
-      <button onClick={()=> dispatch(deleteGoal(goal._id))} className="close">X</button>
+      <button onClick={() => dispatch(deleteGoal(goal._id))} className="close">
+        X
+      </button>
     </div>
   );
 }

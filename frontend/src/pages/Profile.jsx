@@ -18,7 +18,7 @@ function Profile() {
       <section className="heading">
       <h1>Witaj {user && user.name}</h1>
       <p>email: {user && user.email}</p>
-      <p>password: {user && user.password}</p>
+      <p>password: {user && user.password} ***</p>
       </section>
     </>
   );

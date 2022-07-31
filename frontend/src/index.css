@@ -95,7 +95,7 @@ h3 {
 .goals {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 2rem;
 }
 
 .goal {
@@ -107,11 +107,24 @@ h3 {
 
 .goal .close {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: -10px;
+  right: -10px;
   cursor: pointer;
   border: none;
-  background: none;
+  background: #cd1717;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 20%;
+  z-index: 2;
+}
+
+.goal .timestamp {
+  position: absolute;
+  font-size: 0.7rem;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  color: #7b7b7b;
+  padding: 0.5rem;
 }
 
 .form,

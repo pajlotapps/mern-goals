@@ -44,13 +44,12 @@ const Header = () => {
             <li>
               <Link to="/login">
                 <FaSignInAlt />
-                Login
+                Zaloguj
               </Link>
             </li>
             <li>
-              <Link to="/register">
-                <FaUser />
-                Register
+              <Link className="btn" to="/register">
+                Rejestracja
               </Link>
             </li>
           </>

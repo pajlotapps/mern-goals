@@ -58,9 +58,9 @@ function Login() {
     <>
       <section className="heading">
         <h1>
-          <FaSignInAlt /> Login
+          <FaSignInAlt /> Logowanie
         </h1>
-        <p>Login and start setting goals</p>
+        <p>Zaloguj się na swoje konto</p>
       </section>
 
       <section className="form">
@@ -83,14 +83,14 @@ function Login() {
               id="password"
               name="password"
               value={password}
-              placeholder="password"
+              placeholder="hasło"
               onChange={onChange}
             />
           </div>
 
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              Sign in
+              Zaloguj się
             </button>
           </div>
         </form>
