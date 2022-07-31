@@ -1,5 +1,5 @@
 {
-  "name": "goals",
+  "name": "ghosts-tasks",
   "version": "1.0.0",
   "description": "MERN tasks app",
   "main": "server.js",

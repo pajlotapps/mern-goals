@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { GoalForm, GoalItem, Spinner } from '../components'
-import { getGoals, reset } from '../features/goals/goalSlice'
+import { getGoals } from '../features/goals/goalSlice'
+import { reset } from '../features/auth/authSlice'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -20,13 +21,15 @@ function Dashboard() {
 
     if (!user) {
       navigate('/login')
+      return
+    } else {
+      dispatch(getGoals());
     }
-
-    dispatch(getGoals())
 
     return () => {
-      dispatch(reset())
+      dispatch(reset());
     }
+
   // }, [user, dispatch])
 }, [user, navigate, isError, message, dispatch])
 
