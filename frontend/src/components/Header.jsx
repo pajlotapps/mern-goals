@@ -1,13 +1,17 @@
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { GiTargetShot } from "react-icons/gi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
+
+import { toast } from "react-toastify";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+
+  const location = useLocation()
 
   const onLogout = () => {
     dispatch(logout());
@@ -41,17 +45,28 @@ const Header = () => {
           </>
         ) : (
           <>
-            <li>
+            {location.pathname === "/register" ? (
+              <li>
+                <Link to="/login">
+                  <FaSignInAlt className="login-icon" />
+                  Zaloguj
+                </Link>
+              </li>
+            ) : (
+              <>
+                {/* <li>
               <Link to="/login">
-                <FaSignInAlt />
+                <FaSignInAlt className="login-icon"/>
                 Zaloguj
               </Link>
-            </li>
-            <li>
-              <Link className="btn" to="/register">
-                Rejestracja
-              </Link>
-            </li>
+            </li> */}
+                <li>
+                  <Link className="btn" to="/register">
+                    Rejestracja
+                  </Link>
+                </li>
+              </>
+            )}
           </>
         )}
       </ul>

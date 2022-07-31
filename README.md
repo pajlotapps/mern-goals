@@ -2,7 +2,7 @@
 
 Goals management app - The MERN Stack w/ express & MongoDB REST API
 
-## Deployment 👋 
+### Deployment 👋 
 via heroku -> [live] 
 
 ![preview][preview1-url]

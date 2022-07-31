@@ -57,6 +57,10 @@ h3 {
   transform: scale(2.0);
 }
 
+.login-icon {
+  margin-right: 8rem;
+}
+
 .header ul {
   display: flex;
   align-items: center;
@@ -156,9 +160,9 @@ h3 {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #000;
+  border: 1px solid #232323;
   border-radius: 5px;
-  background: #000;
+  background: #232323;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -170,13 +174,13 @@ h3 {
   justify-content: center;
 }
 
-.btn svg {
+/* .btn svg {
   margin-right: 8px;
-}
+} */
 
 .btn-reverse {
   background: #fff;
-  color: #000;
+  color: #232323;
 }
 
 .btn-block {
@@ -185,7 +189,11 @@ h3 {
 }
 
 .btn:hover {
-  transform: scale(0.98);
+  /* transform: scale(0.98); */
+  background-color: transparent;
+  border: 1px solid #232323;
+  color: #232323;
+  font-weight: 800;
 }
 
 .loadingSpinnerContainer {
