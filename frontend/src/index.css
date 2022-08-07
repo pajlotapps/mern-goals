@@ -37,13 +37,28 @@ h3 {
 
 .container {
   width: 100%;
-  max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 60px;
+}
+
+.headerToolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.four0four {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,7 +84,6 @@ h3 {
 
 .header ul li {
   margin-right: 1rem;
-
 }
 
 .header ul li a {
@@ -84,6 +98,8 @@ h3 {
 .header ul li a svg {
   margin-right: 5px;
 }
+
+
 
 .heading {
   font-size: 2rem;

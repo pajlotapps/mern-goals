@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { register, reset } from "../features/auth/authSlice";
-import { Spinner } from "../components";
+import { Spinner, Copyright } from "../components";
+
+//MUI
+import Link from "@mui/material/Link";
+
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -24,17 +28,16 @@ function Register() {
   );
 
   useEffect(() => {
-
     if (isError) {
-      toast.error(message)
+      toast.error(message);
     }
 
     if (isSuccess || user) {
-      navigate('/')
+      navigate("/");
     }
 
     dispatch(reset());
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   isLoading && <Spinner />;
 
@@ -69,7 +72,6 @@ function Register() {
         </h1>
         <p>Uzupełnij formularz</p>
       </section>
-
       <section className="form">
         <form onSubmit={onSubmit}>
           <div className="form-group">
@@ -123,6 +125,13 @@ function Register() {
           </div>
         </form>
       </section>
+      <Link
+        variant="body2"
+        href="/login"
+      >
+        Posiadasz już konto? Zaloguj się
+      </Link>
+      <Copyright sx={{ mt: 5, pb: 2 }} />
     </>
   );
 }
